@@ -160,7 +160,7 @@
       );
     }
 
-    /* ---------- GANPATI IMAGE ---------- */
+    /* ---------- GANESHA IMAGE ---------- */
 
     .ganpati-box {
       position: relative;
@@ -282,24 +282,28 @@
 <body>
 
   <!-- INTRO SCREEN -->
+
   <div id="intro">
+
     <div class="intro-content">
 
       <div class="om">ॐ</div>
 
       <div class="mantra">
-        ॐ श्री गणेशाय नमः
+        Om Shri Ganeshaya Namah
       </div>
 
       <div class="small-text">
-        शुभारंभ • मंगलमय
+        AUSPICIOUS BEGINNING • FULL OF BLESSINGS
       </div>
 
     </div>
+
   </div>
 
 
   <!-- MAIN WEBSITE -->
+
   <main id="main">
 
     <div class="card">
@@ -307,17 +311,18 @@
       <div class="top-om">ॐ</div>
 
       <h1 class="title">
-        गणपति बप्पा मोरया
+        Ganpati Bappa Morya
       </h1>
 
       <div class="subtitle">
-        MANGAL MURTI MORAYA
+        MANGAL MURTI MORYA
       </div>
 
       <div class="divider"></div>
 
 
-      <!-- GANPATI IMAGE -->
+      <!-- GANESHA IMAGE -->
+
       <div class="ganpati-box">
 
         <img
@@ -329,6 +334,7 @@
 
 
       <!-- BLESSING -->
+
       <section class="blessing">
 
         <h2>🙏 Bappa's Blessings 🙏</h2>
@@ -340,19 +346,29 @@
         </p>
 
         <div class="morya">
-          ❤️ गणपति बप्पा मोरया ❤️
+          ❤️ Ganpati Bappa Morya ❤️
         </div>
 
       </section>
 
 
       <!-- MUSIC -->
+
       <audio id="bappaMusic" loop>
-        <source src="./bappa-music.mp3" type="audio/mpeg">
+
+        <source
+          src="./bappa-music.mp3"
+          type="audio/mpeg">
+
       </audio>
 
-      <button class="music-btn" onclick="toggleMusic()">
+
+      <button
+        class="music-btn"
+        onclick="toggleMusic()">
+
         🎵 Play Bappa Music
+
       </button>
 
     </div>
@@ -362,14 +378,22 @@
 
   <script>
 
-    /* INTRO DISAPPEARS AFTER A FEW SECONDS */
+    /* INTRO DISAPPEARS AFTER 3.5 SECONDS */
 
     setTimeout(function () {
 
-      document.getElementById("intro").classList.add("hide");
+      document
+        .getElementById("intro")
+        .classList
+        .add("hide");
 
       setTimeout(function () {
-        document.getElementById("main").classList.add("show");
+
+        document
+          .getElementById("main")
+          .classList
+          .add("show");
+
       }, 500);
 
     }, 3500);
@@ -379,23 +403,34 @@
 
     function toggleMusic() {
 
-      const music = document.getElementById("bappaMusic");
-      const button = document.querySelector(".music-btn");
+      const music =
+        document.getElementById("bappaMusic");
+
+      const button =
+        document.querySelector(".music-btn");
 
       if (music.paused) {
 
         music.play()
           .then(function () {
-            button.innerHTML = "⏸️ Pause Bappa Music";
+
+            button.innerHTML =
+              "⏸️ Pause Bappa Music";
+
           })
           .catch(function () {
-            button.innerHTML = "🎵 Tap Again to Play";
+
+            button.innerHTML =
+              "🎵 Tap Again to Play";
+
           });
 
       } else {
 
         music.pause();
-        button.innerHTML = "🎵 Play Bappa Music";
+
+        button.innerHTML =
+          "🎵 Play Bappa Music";
 
       }
 
@@ -406,14 +441,26 @@
 
     function createParticle() {
 
-      const particle = document.createElement("div");
+      const particle =
+        document.createElement("div");
 
-      particle.className = "particle";
+      particle.className =
+        "particle";
 
-      const symbols = ["✨", "🪔", "🌼", "✦", "•"];
+      const symbols = [
+        "✨",
+        "🪔",
+        "🌼",
+        "✦",
+        "•"
+      ];
 
       particle.innerHTML =
-        symbols[Math.floor(Math.random() * symbols.length)];
+        symbols[
+          Math.floor(
+            Math.random() * symbols.length
+          )
+        ];
 
       particle.style.left =
         Math.random() * 100 + "vw";
@@ -427,8 +474,11 @@
       document.body.appendChild(particle);
 
       setTimeout(function () {
+
         particle.remove();
+
       }, 12000);
+
     }
 
     setInterval(createParticle, 500);
