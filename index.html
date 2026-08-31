@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ganpati Bappa Morya ❤️</title>
+<title>Ganpati Bappa Morya</title>
 
 <style>
-
 * {
     margin: 0;
     padding: 0;
@@ -20,15 +19,24 @@ html {
 
 body {
     min-height: 100vh;
-    background:
-        radial-gradient(circle at center,
-        #ffb300 0%,
-        #e85d00 25%,
-        #6e2100 55%,
-        #170500 100%);
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #ffb300 0%,
+            #e85d00 25%,
+            #6e2100 55%,
+            #170500 100%
+        );
 }
 
 /* =========================
@@ -46,11 +54,13 @@ body {
     flex-direction: column;
 
     background:
-        radial-gradient(circle at center,
-        #ffb300 0%,
-        #e86b00 30%,
-        #451100 75%,
-        #080200 100%);
+        radial-gradient(
+            circle at center,
+            #ffb300 0%,
+            #e86b00 30%,
+            #451100 75%,
+            #080200 100%
+        );
 
     transition:
         opacity 1s ease,
@@ -63,18 +73,70 @@ body {
     pointer-events: none;
 }
 
+/* Opening diya made with CSS */
+
 .openingDiya {
-    font-size: 70px;
+    position: relative;
+
+    width: 80px;
+    height: 35px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffcf55,
+            #b94d00
+        );
+
+    border-radius:
+        10px 10px 45px 45px;
+
+    box-shadow:
+        0 0 20px #ff9800,
+        0 0 45px rgba(255,180,0,0.8);
 
     animation:
         diyaGlow 1.2s infinite alternate;
+}
+
+.openingDiya::before {
+    content: "";
+
+    position: absolute;
+
+    width: 25px;
+    height: 40px;
+
+    left: 27px;
+    top: -30px;
+
+    background:
+        radial-gradient(
+            ellipse at center bottom,
+            #fff4a3 0%,
+            #ffd000 35%,
+            #ff6d00 65%,
+            transparent 70%
+        );
+
+    border-radius: 50%;
 
     filter:
-        drop-shadow(0 0 15px #ffd54a);
+        drop-shadow(0 0 12px #ffd000);
+}
+
+@keyframes diyaGlow {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
 }
 
 .openingTitle {
-    margin-top: 20px;
+    margin-top: 30px;
 
     font-size: 28px;
     font-weight: bold;
@@ -91,29 +153,13 @@ body {
 .openingSub {
     margin-top: 12px;
 
+    padding: 0 25px;
+
     font-size: 15px;
 
     color: #ffe7a0;
 
     text-align: center;
-
-    padding: 0 25px;
-}
-
-@keyframes diyaGlow {
-
-    from {
-        transform: scale(1);
-        filter:
-            drop-shadow(0 0 8px #ff9800);
-    }
-
-    to {
-        transform: scale(1.15);
-        filter:
-            drop-shadow(0 0 35px #ffd700);
-    }
-
 }
 
 /* =========================
@@ -129,14 +175,9 @@ body {
         35px 18px 60px;
 
     text-align: center;
-
-    opacity: 1;
-    visibility: visible;
 }
 
-/* =========================
-   DECORATIVE GLOW
-========================= */
+/* Background glow */
 
 .glow {
     position: fixed;
@@ -168,18 +209,20 @@ body {
 }
 
 /* =========================
-   GANPATI
+   GANPATI VISUAL
 ========================= */
 
 .ganpatiCircle {
 
     position: relative;
+
     z-index: 2;
 
     width: 190px;
     height: 190px;
 
-    margin: 15px auto 25px;
+    margin:
+        15px auto 25px;
 
     border-radius: 50%;
 
@@ -204,11 +247,157 @@ body {
         ganpatiFloat 4s ease-in-out infinite;
 }
 
-.ganpatiIcon {
-    font-size: 105px;
+/*
+   Simple CSS Ganpati symbol
+   No emoji used
+*/
 
-    filter:
-        drop-shadow(0 8px 8px rgba(0,0,0,0.5));
+.ganpati {
+
+    position: relative;
+
+    width: 105px;
+    height: 105px;
+}
+
+/* Head */
+
+.ganpatiHead {
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    left: 18px;
+    top: 10px;
+
+    background: #eeeeee;
+
+    border-radius:
+        45% 45% 50% 50%;
+
+    box-shadow:
+        0 8px 12px rgba(0,0,0,0.3);
+}
+
+/* Left ear */
+
+.ganpatiHead::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 32px;
+    height: 45px;
+
+    left: -18px;
+    top: 8px;
+
+    background: #dddddd;
+
+    border-radius:
+        50% 30% 50% 50%;
+
+    transform: rotate(-18deg);
+}
+
+/* Right ear */
+
+.ganpatiHead::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 32px;
+    height: 45px;
+
+    right: -18px;
+    top: 8px;
+
+    background: #dddddd;
+
+    border-radius:
+        30% 50% 50% 50%;
+
+    transform: rotate(18deg);
+}
+
+/* Trunk */
+
+.trunk {
+
+    position: absolute;
+
+    width: 28px;
+    height: 58px;
+
+    left: 38px;
+    top: 45px;
+
+    background: #eeeeee;
+
+    border-radius:
+        0 0 25px 25px;
+
+    transform:
+        rotate(8deg);
+}
+
+/* Eyes */
+
+.eye {
+
+    position: absolute;
+
+    width: 7px;
+    height: 9px;
+
+    top: 37px;
+
+    background: #111;
+
+    border-radius: 50%;
+
+    z-index: 5;
+}
+
+.eye.left {
+    left: 35px;
+}
+
+.eye.right {
+    right: 35px;
+}
+
+/* Tusk */
+
+.tusk {
+
+    position: absolute;
+
+    width: 13px;
+    height: 22px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    top: 55px;
+
+    z-index: 4;
+}
+
+.tusk.left {
+    left: 27px;
+    transform: rotate(25deg);
+}
+
+.tusk.right {
+    right: 27px;
+    transform: rotate(-25deg);
 }
 
 @keyframes ganpatiFloat {
@@ -220,7 +409,6 @@ body {
     50% {
         transform: translateY(-10px);
     }
-
 }
 
 /* =========================
@@ -230,6 +418,7 @@ body {
 .mainTitle {
 
     position: relative;
+
     z-index: 2;
 
     font-size:
@@ -259,12 +448,12 @@ body {
             0 0 20px #ffb300,
             0 0 40px #ff6d00;
     }
-
 }
 
 .subtitle {
 
     position: relative;
+
     z-index: 2;
 
     margin:
@@ -280,12 +469,13 @@ body {
 }
 
 /* =========================
-   CARD
+   HEARTFELT WISHES CARD
 ========================= */
 
 .card {
 
     position: relative;
+
     z-index: 2;
 
     max-width: 520px;
@@ -317,7 +507,7 @@ body {
 
     font-size: 25px;
 
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .cardText {
@@ -336,6 +526,7 @@ body {
 .musicButton {
 
     position: relative;
+
     z-index: 5;
 
     border: none;
@@ -343,8 +534,7 @@ body {
     padding:
         14px 24px;
 
-    margin:
-        5px;
+    margin: 5px;
 
     border-radius: 50px;
 
@@ -373,16 +563,16 @@ body {
 
     transform:
         translateY(-3px);
-
 }
 
 /* =========================
-   BLESSING
+   BAPPA'S BLESSING
 ========================= */
 
 .blessingBox {
 
     position: relative;
+
     z-index: 2;
 
     max-width: 520px;
@@ -434,6 +624,7 @@ body {
 .blessingButton {
 
     position: relative;
+
     z-index: 5;
 
     border: none;
@@ -468,7 +659,6 @@ body {
 
     transform:
         scale(1.04);
-
 }
 
 /* =========================
@@ -480,6 +670,7 @@ body {
     display: none;
 
     position: relative;
+
     z-index: 3;
 
     max-width: 520px;
@@ -532,7 +723,6 @@ body {
         opacity: 1;
         transform: scale(1);
     }
-
 }
 
 /* =========================
@@ -542,6 +732,7 @@ body {
 .footer {
 
     position: relative;
+
     z-index: 2;
 
     max-width: 520px;
@@ -556,20 +747,11 @@ body {
 
     color: #ffe0a0;
 
-    font-size: 16px;
-}
-
-.love {
-
-    margin-top: 8px;
-
-    color: #ff7777;
-
-    font-weight: bold;
+    font-size: 15px;
 }
 
 /* =========================
-   PETALS
+   FALLING FLOWER PETALS
 ========================= */
 
 .petal {
@@ -579,6 +761,19 @@ body {
     top: -30px;
 
     z-index: 1;
+
+    width: 10px;
+    height: 14px;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffd4e5,
+            #ff82a8
+        );
+
+    border-radius:
+        50% 50% 50% 0;
 
     pointer-events: none;
 
@@ -597,7 +792,6 @@ body {
 
         opacity: 0;
     }
-
 }
 
 /* =========================
@@ -612,7 +806,16 @@ body {
 
     pointer-events: none;
 
-    font-size: 25px;
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #ffd54f;
+
+    box-shadow:
+        0 0 10px #ffd54f,
+        0 0 20px #ff9800;
 
     animation:
         goldenRise 2.5s ease-out forwards;
@@ -637,7 +840,6 @@ body {
             translateY(-250px)
             scale(1.5);
     }
-
 }
 
 /* =========================
@@ -650,12 +852,47 @@ body {
 
     z-index: 1;
 
-    font-size: 25px;
+    width: 42px;
+    height: 18px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffd45a,
+            #b64b00
+        );
+
+    border-radius:
+        5px 5px 20px 20px;
 
     opacity: 0.7;
 
     animation:
         floatDiya 4s ease-in-out infinite;
+
+    box-shadow:
+        0 0 12px #ff9800;
+}
+
+.floatingDiya::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+    height: 20px;
+
+    left: 15px;
+    top: -15px;
+
+    background:
+        radial-gradient(
+            ellipse,
+            #fff3a0,
+            #ff9800,
+            transparent 70%
+        );
 }
 
 @keyframes floatDiya {
@@ -667,7 +904,38 @@ body {
     50% {
         transform: translateY(-15px);
     }
+}
 
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:480px) {
+
+    #mainWebsite {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .ganpatiCircle {
+        width: 175px;
+        height: 175px;
+    }
+
+    .mainTitle {
+        font-size: 35px;
+    }
+
+    .card,
+    .blessingBox {
+        padding:
+            24px 17px;
+    }
+
+    .cardText,
+    .blessingText {
+        font-size: 17px;
+    }
 }
 
 </style>
@@ -676,14 +944,12 @@ body {
 <body>
 
 <!-- =========================
-     OPENING
+     OPENING SCREEN
 ========================= -->
 
 <div id="openingScreen">
 
-    <div class="openingDiya">
-        🪔
-    </div>
+    <div class="openingDiya"></div>
 
     <div class="openingTitle">
         Om Shri Ganeshaya Namah
@@ -704,24 +970,24 @@ body {
 
 <!-- Floating Diyas -->
 
-<div class="floatingDiya"
-     style="left:8%;top:25%;">
-    🪔
+<div
+    class="floatingDiya"
+    style="left:8%;top:25%;">
 </div>
 
-<div class="floatingDiya"
-     style="right:8%;top:45%;">
-    🪔
+<div
+    class="floatingDiya"
+    style="right:8%;top:45%;">
 </div>
 
-<div class="floatingDiya"
-     style="left:12%;top:75%;">
-    🪔
+<div
+    class="floatingDiya"
+    style="left:12%;top:75%;">
 </div>
 
-<div class="floatingDiya"
-     style="right:12%;top:80%;">
-    🪔
+<div
+    class="floatingDiya"
+    style="right:12%;top:80%;">
 </div>
 
 
@@ -731,21 +997,32 @@ body {
 
 <main id="mainWebsite">
 
-    <!-- Ganpati -->
+
+    <!-- Ganpati Visual -->
 
     <div class="ganpatiCircle">
 
-        <div class="ganpatiIcon">
-            🐘
+        <div class="ganpati">
+
+            <div class="ganpatiHead"></div>
+
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+
+            <div class="trunk"></div>
+
+            <div class="tusk left"></div>
+            <div class="tusk right"></div>
+
         </div>
 
     </div>
 
 
-    <!-- Title -->
+    <!-- Main Title -->
 
     <h1 class="mainTitle">
-        Ganpati Bappa Morya ❤️
+        Ganpati Bappa Morya
     </h1>
 
 
@@ -755,12 +1032,12 @@ body {
     </p>
 
 
-    <!-- Greeting -->
+    <!-- Heartfelt Wishes -->
 
     <section class="card">
 
         <h2 class="cardTitle">
-            🌸 Heartfelt Wishes 🌸
+            Heartfelt Wishes
         </h2>
 
         <p class="cardText">
@@ -786,12 +1063,14 @@ body {
         class="musicButton"
         onclick="toggleMusic()">
 
-        🎵 Play Devotional Music
+        Play Devotional Music
 
     </button>
 
 
-    <audio id="ganeshMusic" loop>
+    <audio
+        id="ganeshMusic"
+        loop>
 
         <source
             src="ganesh.mp3"
@@ -805,7 +1084,7 @@ body {
     <section class="blessingBox">
 
         <h2 class="blessingTitle">
-            📜 Bappa's Blessing
+            Bappa's Blessing
         </h2>
 
         <p class="blessingText">
@@ -823,13 +1102,13 @@ body {
     </section>
 
 
-    <!-- Blessing Button -->
+    <!-- Get Blessing -->
 
     <button
         class="blessingButton"
         onclick="getBlessing()">
 
-        🙏 Get Bappa's Blessings
+        Get Bappa's Blessings
 
     </button>
 
@@ -839,7 +1118,7 @@ body {
     <div id="blessingResult">
 
         <h2>
-            ✨ Bappa's Blessings ✨
+            Bappa's Blessings
         </h2>
 
         <p>
@@ -851,39 +1130,30 @@ body {
 
             <br><br>
 
-            🙏 Ganpati Bappa Morya 🙏
+            Ganpati Bappa Morya
 
         </p>
 
     </div>
 
 
-    <!-- Footer -->
+    <!-- Simple Footer -->
 
     <footer class="footer">
 
-        <div>
-            With Love ❤️
-        </div>
-
-        <div class="love">
-            — Your Name / Business Name
-        </div>
-
-        <div style="margin-top:15px;">
-            🌸 Happy Ganesh Chaturthi 🌸
-        </div>
+        Happy Ganesh Chaturthi
 
     </footer>
+
 
 </main>
 
 
 <script>
 
-/* =====================================
+/* =========================
    OPENING SCREEN
-   ===================================== */
+========================= */
 
 function closeOpening() {
 
@@ -892,16 +1162,17 @@ function closeOpening() {
             "openingScreen"
         );
 
-    if (!opening) return;
+    if (opening) {
 
-    opening.classList.add("hide");
+        opening.classList.add("hide");
+
+    }
 
 }
 
 
 /*
-   Normal opening:
-   3 seconds
+   Opening stays for 3 seconds
 */
 
 setTimeout(
@@ -911,11 +1182,7 @@ setTimeout(
 
 
 /*
-   SAFETY FALLBACK:
-
-   If something prevents the normal
-   animation from finishing, remove
-   the opening screen anyway.
+   Safety fallback
 */
 
 setTimeout(
@@ -924,9 +1191,9 @@ setTimeout(
 );
 
 
-/* =====================================
+/* =========================
    MUSIC
-   ===================================== */
+========================= */
 
 function toggleMusic() {
 
@@ -940,13 +1207,14 @@ function toggleMusic() {
             ".musicButton"
         );
 
+
     if (music.paused) {
 
         music.play()
         .then(function() {
 
             button.innerHTML =
-                "⏸️ Pause Devotional Music";
+                "Pause Devotional Music";
 
         })
         .catch(function() {
@@ -962,16 +1230,16 @@ function toggleMusic() {
         music.pause();
 
         button.innerHTML =
-            "🎵 Play Devotional Music";
+            "Play Devotional Music";
 
     }
 
 }
 
 
-/* =====================================
+/* =========================
    GET BAPPA'S BLESSINGS
-   ===================================== */
+========================= */
 
 function getBlessing() {
 
@@ -985,18 +1253,8 @@ function getBlessing() {
 
 
     /*
-       Golden blessing animation
+       Golden particles
     */
-
-    const symbols = [
-        "✨",
-        "🌟",
-        "🙏",
-        "🪔",
-        "🌸",
-        "💛"
-    ];
-
 
     for (
         let i = 0;
@@ -1012,26 +1270,22 @@ function getBlessing() {
         particle.className =
             "golden";
 
-        particle.innerHTML =
-            symbols[
-                Math.floor(
-                    Math.random() *
-                    symbols.length
-                )
-            ];
 
         particle.style.left =
             Math.random() * 100 +
             "vw";
+
 
         particle.style.top =
             (50 +
             Math.random() * 40) +
             "vh";
 
+
         particle.style.animationDelay =
             Math.random() * 0.8 +
             "s";
+
 
         document.body.appendChild(
             particle
@@ -1069,9 +1323,9 @@ function getBlessing() {
 }
 
 
-/* =====================================
-   FLOWING FLOWER PETALS
-   ===================================== */
+/* =========================
+   FLOWER PETALS
+========================= */
 
 function createPetal() {
 
@@ -1084,38 +1338,21 @@ function createPetal() {
         "petal";
 
 
-    const flowers = [
-        "🌸",
-        "🌼",
-        "🌺",
-        "🪷"
-    ];
-
-
-    petal.innerHTML =
-        flowers[
-            Math.floor(
-                Math.random() *
-                flowers.length
-            )
-        ];
-
-
     petal.style.left =
         Math.random() * 100 +
         "vw";
-
-
-    petal.style.fontSize =
-        (14 +
-        Math.random() * 12) +
-        "px";
 
 
     petal.style.animationDuration =
         (5 +
         Math.random() * 5) +
         "s";
+
+
+    petal.style.transform =
+        "rotate(" +
+        Math.random() * 360 +
+        "deg)";
 
 
     document.body.appendChild(
@@ -1135,19 +1372,15 @@ function createPetal() {
 }
 
 
-/*
-   Start petals
-*/
-
 setInterval(
     createPetal,
     700
 );
 
 
-/* =====================================
-   EXTRA GOLDEN PARTICLES
-   ===================================== */
+/* =========================
+   SUBTLE GOLD PARTICLES
+========================= */
 
 function createSmallParticle() {
 
@@ -1156,11 +1389,24 @@ function createSmallParticle() {
             "div"
         );
 
-    particle.innerHTML =
-        "✨";
 
     particle.style.position =
         "fixed";
+
+    particle.style.width =
+        "4px";
+
+    particle.style.height =
+        "4px";
+
+    particle.style.borderRadius =
+        "50%";
+
+    particle.style.background =
+        "#ffd54f";
+
+    particle.style.boxShadow =
+        "0 0 8px #ffb300";
 
     particle.style.left =
         Math.random() * 100 +
@@ -1170,9 +1416,6 @@ function createSmallParticle() {
         Math.random() * 100 +
         "vh";
 
-    particle.style.fontSize =
-        "9px";
-
     particle.style.opacity =
         "0.35";
 
@@ -1181,6 +1424,7 @@ function createSmallParticle() {
 
     particle.style.zIndex =
         "1";
+
 
     document.body.appendChild(
         particle
