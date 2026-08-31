@@ -412,4 +412,53 @@ footer{
 </div>
 
 <!-- Music File -->
-<audio id="
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const music = document.getElementById("music");
+const musicButton = document.getElementById("musicButton");
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play();
+
+        musicButton.innerHTML =
+        "🔊 Music On — Tap to Stop";
+
+    }else{
+
+        music.pause();
+
+        musicButton.innerHTML =
+        "🎵 Tap to Play Music";
+
+    }
+
+}
+
+function showBlessing(){
+
+    const message =
+    document.getElementById("blessingMessage");
+
+    message.style.display = "block";
+
+    window.scrollTo({
+
+        top: message.offsetTop - 80,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
