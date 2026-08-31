@@ -177,8 +177,6 @@ body {
     text-align: center;
 }
 
-/* Background Glow */
-
 .glow {
     position: fixed;
 
@@ -245,8 +243,6 @@ body {
     animation:
         ganpatiFloat 4s ease-in-out infinite;
 }
-
-/* CSS Ganpati */
 
 .ganpati {
     position: relative;
@@ -390,6 +386,7 @@ body {
 }
 
 @keyframes ganpatiFloat {
+
     0%, 100% {
         transform: translateY(0);
     }
@@ -424,6 +421,7 @@ body {
 }
 
 @keyframes titleGlow {
+
     from {
         text-shadow:
             0 0 8px #ff9800;
@@ -685,6 +683,7 @@ body {
 }
 
 @keyframes blessingAppear {
+
     from {
         opacity: 0;
         transform: scale(0.7);
@@ -721,7 +720,7 @@ body {
 }
 
 /* =========================
-   FALLING PETALS
+   FLOWER PETALS
 ========================= */
 
 .petal {
@@ -751,6 +750,7 @@ body {
 }
 
 @keyframes fall {
+
     to {
         transform:
             translateY(110vh)
@@ -788,6 +788,7 @@ body {
 }
 
 @keyframes goldenRise {
+
     0% {
         opacity: 1;
 
@@ -857,6 +858,7 @@ body {
 }
 
 @keyframes floatDiya {
+
     0%,100% {
         transform: translateY(0);
     }
@@ -1104,7 +1106,6 @@ body {
 
     </footer>
 
-
 </main>
 
 
@@ -1200,8 +1201,6 @@ function getBlessing() {
         "block";
 
 
-    /* Golden Particles */
-
     for (
         let i = 0;
         i < 40;
@@ -1216,27 +1215,22 @@ function getBlessing() {
         particle.className =
             "golden";
 
-
         particle.style.left =
             Math.random() * 100 +
             "vw";
-
 
         particle.style.top =
             (50 +
             Math.random() * 40) +
             "vh";
 
-
         particle.style.animationDelay =
             Math.random() * 0.8 +
             "s";
 
-
         document.body.appendChild(
             particle
         );
-
 
         setTimeout(
             function() {
@@ -1249,8 +1243,6 @@ function getBlessing() {
 
     }
 
-
-    /* Scroll to Blessing */
 
     setTimeout(
         function() {
@@ -1281,28 +1273,23 @@ function createPetal() {
     petal.className =
         "petal";
 
-
     petal.style.left =
         Math.random() * 100 +
         "vw";
-
 
     petal.style.animationDuration =
         (5 +
         Math.random() * 5) +
         "s";
 
-
     petal.style.transform =
         "rotate(" +
         Math.random() * 360 +
         "deg)";
 
-
     document.body.appendChild(
         petal
     );
-
 
     setTimeout(
         function() {
@@ -1314,7 +1301,6 @@ function createPetal() {
     );
 
 }
-
 
 setInterval(
     createPetal,
@@ -1332,7 +1318,6 @@ function createSmallParticle() {
         document.createElement(
             "div"
         );
-
 
     particle.style.position =
         "fixed";
@@ -1369,11 +1354,9 @@ function createSmallParticle() {
     particle.style.zIndex =
         "1";
 
-
     document.body.appendChild(
         particle
     );
-
 
     setTimeout(
         function() {
@@ -1385,7 +1368,6 @@ function createSmallParticle() {
     );
 
 }
-
 
 setInterval(
     createSmallParticle,
