@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,8 @@
 <title>Ganesh Chaturthi Wishes</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 * {
     margin: 0;
@@ -22,135 +23,240 @@ html {
 body {
     min-height: 100vh;
     overflow-x: hidden;
-    font-family: 'Noto Sans Devanagari', sans-serif;
-    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+
     background:
-        radial-gradient(circle at 50% 20%, #572000 0%, #250d00 38%, #080300 80%);
+        radial-gradient(
+            circle at 50% 15%,
+            #6b2a00 0%,
+            #351200 32%,
+            #140600 65%,
+            #050200 100%
+        );
 }
 
-/* =========================
-   OPENING ANIMATION
-========================= */
+/* =================================
+   OPENING SCREEN
+================================= */
 
-#opening {
+#openingScreen {
+
     position: fixed;
     inset: 0;
+
     z-index: 9999;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     background:
-        radial-gradient(circle, #602700 0%, #1b0700 55%, #050200 100%);
-    transition: opacity 1.2s ease, visibility 1.2s ease;
+        radial-gradient(
+            circle,
+            #642900 0%,
+            #210800 55%,
+            #050200 100%
+        );
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
 }
 
-#opening.hide {
+#openingScreen.hide {
+
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 }
 
+/* Diya */
+
 .diya {
+
     position: relative;
-    width: 90px;
-    height: 45px;
-    border-radius: 0 0 55px 55px;
-    background: linear-gradient(to bottom, #ffcf55, #c44d00);
+
+    width: 92px;
+    height: 42px;
+
+    margin-top: 50px;
+
+    border-radius:
+        0 0 55px 55px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffd45b,
+            #d85b00
+        );
+
     box-shadow:
-        0 10px 25px rgba(255,130,0,.45),
-        0 0 50px rgba(255,160,20,.55);
+        0 8px 25px rgba(255,130,0,.5),
+        0 0 60px rgba(255,160,0,.7);
 }
 
-.diya::after {
+.diya::before {
+
     content: "";
+
     position: absolute;
-    width: 55px;
+
+    width: 58px;
     height: 12px;
+
     left: 50%;
     top: -5px;
+
     transform: translateX(-50%);
+
     border-radius: 50%;
-    background: #ffb52e;
+
+    background: #ffbd3b;
 }
 
+/* Flame */
+
 .flame {
+
     position: absolute;
+
     left: 50%;
-    top: -65px;
+    top: -68px;
+
     width: 30px;
     height: 55px;
+
     transform: translateX(-50%);
-    border-radius: 55% 45% 55% 45%;
-    background: linear-gradient(
-        to top,
-        #ff5b00,
-        #ffb300,
-        #fff3a0
-    );
+
+    border-radius:
+        55% 45% 55% 45%;
+
+    background:
+        linear-gradient(
+            to top,
+            #ff4d00,
+            #ff9d00,
+            #fff3a1
+        );
+
     box-shadow:
-        0 0 15px #ff8c00,
-        0 0 40px #ff9d00,
-        0 0 70px rgba(255,160,0,.6);
-    animation: flameMove .65s infinite alternate;
+        0 0 18px #ff8a00,
+        0 0 45px #ff9d00,
+        0 0 80px rgba(255,150,0,.7);
+
+    animation:
+        flameMove .7s infinite alternate;
 }
 
 @keyframes flameMove {
+
     from {
-        transform: translateX(-50%) scale(.88) rotate(-3deg);
+        transform:
+            translateX(-50%)
+            scale(.9)
+            rotate(-3deg);
     }
+
     to {
-        transform: translateX(-50%) scale(1.12) rotate(3deg);
+        transform:
+            translateX(-50%)
+            scale(1.12)
+            rotate(3deg);
     }
 }
 
 .openingText {
-    margin-top: 65px;
-    color: #ffd873;
-    font-size: 20px;
-    font-weight: 700;
-    text-shadow: 0 0 20px #ff9700;
-    animation: openingPulse 1.4s infinite alternate;
+
+    margin-top: 70px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    color: #ffd66b;
+
+    text-shadow:
+        0 0 15px #ff9200;
+
+    animation:
+        openingPulse 1.5s infinite alternate;
 }
 
 @keyframes openingPulse {
-    from { opacity: .55; }
-    to { opacity: 1; }
+
+    from {
+        opacity: .5;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
-/* =========================
-   BACKGROUND
-========================= */
+/* =================================
+   BACKGROUND EFFECTS
+================================= */
 
 .backgroundGlow {
+
     position: fixed;
-    width: 320px;
-    height: 320px;
+
+    width: 340px;
+    height: 340px;
+
     left: 50%;
-    top: 25%;
+    top: 30%;
+
     transform: translate(-50%, -50%);
+
     border-radius: 50%;
-    background: #ff8a00;
+
+    background: #ff8c00;
+
     opacity: .10;
-    filter: blur(80px);
+
+    filter: blur(90px);
+
     pointer-events: none;
 }
 
+/* =================================
+   GOLDEN PARTICLES
+================================= */
+
 .particle {
+
     position: fixed;
+
     width: 4px;
     height: 4px;
+
     border-radius: 50%;
+
     background: #ffd76b;
-    box-shadow: 0 0 8px #ffb300;
+
+    box-shadow:
+        0 0 10px #ffae00;
+
     pointer-events: none;
-    z-index: 1;
-    animation: particleFloat linear infinite;
+
+    z-index: 2;
+
+    animation:
+        particleFloat linear infinite;
 }
 
 @keyframes particleFloat {
+
     from {
-        transform: translateY(105vh);
+
+        transform:
+            translateY(110vh);
+
         opacity: 0;
     }
 
@@ -159,26 +265,40 @@ body {
     }
 
     to {
-        transform: translateY(-10vh);
+
+        transform:
+            translateY(-10vh);
+
         opacity: 0;
     }
 }
 
-/* =========================
+/* =================================
    FALLING FLOWERS
-========================= */
+================================= */
 
 .flower {
+
     position: fixed;
+
     top: -40px;
-    z-index: 20;
+
+    z-index: 10;
+
     pointer-events: none;
-    animation: flowerFall linear forwards;
+
+    animation:
+        flowerFall linear forwards;
 }
 
 @keyframes flowerFall {
+
     0% {
-        transform: translateY(0) rotate(0deg);
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
         opacity: 0;
     }
 
@@ -187,160 +307,239 @@ body {
     }
 
     100% {
-        transform: translateY(110vh) rotate(360deg);
+
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
         opacity: 0;
     }
 }
 
-/* =========================
-   MAIN
-========================= */
+/* =================================
+   MAIN PAGE
+================================= */
 
 .page {
+
     position: relative;
+
     z-index: 5;
+
     min-height: 100vh;
-    padding: 25px 15px 55px;
+
+    padding:
+        30px 16px 60px;
 }
 
 .container {
+
     width: 100%;
+
     max-width: 600px;
+
     margin: auto;
+
     text-align: center;
 }
 
-/* =========================
-   TOP
-========================= */
+/* =================================
+   PREMIUM SYMBOL
+================================= */
 
-.om {
-    margin-top: 5px;
-    font-size: 27px;
-    color: #ffd56b;
-    text-shadow:
-        0 0 10px #ff8c00,
-        0 0 25px rgba(255,170,40,.7);
-}
+.premiumSymbol {
 
-/* =========================
-   GANPATI VISUAL
-   NO IMAGE USED
-========================= */
+    width: 180px;
+    height: 180px;
 
-.ganeshVisual {
+    margin:
+        35px auto 28px;
+
     position: relative;
-    width: 190px;
-    height: 190px;
-    margin: 30px auto 25px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,216,110,.55) 0%,
-            rgba(210,95,0,.30) 40%,
-            rgba(70,20,0,.05) 70%
+            rgba(255,220,120,.35),
+            rgba(150,55,0,.18),
+            transparent 70%
         );
 
-    border: 1px solid rgba(255,215,110,.35);
+    border:
+        1px solid
+        rgba(255,210,100,.45);
 
     box-shadow:
-        0 0 25px rgba(255,145,0,.45),
-        inset 0 0 35px rgba(255,210,90,.12);
 
-    animation: visualGlow 3s infinite alternate;
+        0 0 30px
+        rgba(255,160,20,.35),
+
+        inset 0 0 35px
+        rgba(255,210,100,.12);
+
+    animation:
+        symbolGlow 3s infinite alternate;
 }
 
-/*
-   Decorative central symbol.
-   No Ganpati image is used.
-*/
+/* Decorative rings */
 
-.ganeshSymbol {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: #ffd66d;
-    font-size: 70px;
-    font-weight: 800;
-    text-shadow:
-        0 0 12px #ff9700,
-        0 0 35px rgba(255,170,30,.7);
-}
+.premiumSymbol::before {
 
-.ganeshSymbol::before {
-    content: "ॐ";
-}
-
-.ganeshVisual::before,
-.ganeshVisual::after {
     content: "";
+
     position: absolute;
+
+    inset: 13px;
+
     border-radius: 50%;
-    border: 1px solid rgba(255,210,100,.35);
+
+    border:
+        1px solid
+        rgba(255,215,110,.35);
 }
 
-.ganeshVisual::before {
-    inset: 14px;
+.premiumSymbol::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 27px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,215,110,.22);
 }
 
-.ganeshVisual::after {
-    inset: 28px;
+/* Center design */
+
+.centerDesign {
+
+    position: relative;
+
+    width: 82px;
+    height: 82px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffd86b,
+            #ff8a00
+        );
+
+    box-shadow:
+        0 0 30px
+        rgba(255,170,30,.55);
+
+    color: #542000;
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    z-index: 2;
 }
 
-@keyframes visualGlow {
+.centerDesign::before {
+
+    content: "G";
+
+}
+
+@keyframes symbolGlow {
+
     from {
+
         transform: scale(1);
+
         box-shadow:
-            0 0 22px rgba(255,145,0,.35),
-            inset 0 0 25px rgba(255,210,90,.10);
+            0 0 22px
+            rgba(255,145,0,.3);
     }
 
     to {
-        transform: scale(1.04);
+
+        transform: scale(1.045);
+
         box-shadow:
-            0 0 50px rgba(255,160,20,.65),
-            inset 0 0 40px rgba(255,220,110,.18);
+            0 0 55px
+            rgba(255,165,20,.65);
     }
 }
 
-/* =========================
+/* =================================
    MAIN TITLE
-========================= */
+================================= */
 
-.title {
-    font-size: clamp(28px, 7vw, 43px);
-    line-height: 1.4;
+.mainTitle {
+
+    font-size:
+        clamp(28px, 7vw, 43px);
+
     font-weight: 800;
-    color: #ffd86e;
+
+    line-height: 1.35;
+
+    color: #ffd86d;
 
     text-shadow:
-        0 0 8px #ff8500,
-        0 0 25px rgba(255,145,0,.65);
 
-    animation: titleAnimation 1.5s ease;
+        0 0 8px #ff8500,
+
+        0 0 25px
+        rgba(255,150,0,.65);
+
+    animation:
+        titleAppear 1.5s ease;
 }
 
-@keyframes titleAnimation {
-    0% {
+@keyframes titleAppear {
+
+    from {
+
         opacity: 0;
-        transform: translateY(25px) scale(.85);
+
+        transform:
+            translateY(25px)
+            scale(.88);
     }
 
-    100% {
+    to {
+
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
 .heart {
+
     display: inline-block;
-    animation: heartBeat 1s infinite;
+
+    animation:
+        heartBeat 1s infinite;
 }
 
 @keyframes heartBeat {
+
     0%,100% {
         transform: scale(1);
     }
@@ -350,192 +549,270 @@ body {
     }
 }
 
-/* =========================
-   WISH MESSAGE
-========================= */
+/* =================================
+   SUBTITLE
+================================= */
 
-.wishMessage {
-    margin-top: 18px;
-    padding: 0 5px;
-    color: #fff1d0;
-    font-size: 17px;
-    line-height: 2;
-    animation: fadeUp 1.8s ease;
+.subtitle {
+
+    margin-top: 15px;
+
+    color: #fff0cf;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    animation:
+        fadeUp 1.8s ease;
 }
 
 @keyframes fadeUp {
+
     from {
+
         opacity: 0;
-        transform: translateY(20px);
+
+        transform:
+            translateY(20px);
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
 
-/* =========================
-   CARD
-========================= */
+/* =================================
+   WISH CARD
+================================= */
 
-.glassCard {
+.wishCard {
+
     margin-top: 28px;
-    padding: 25px 20px;
+
+    padding:
+        25px 20px;
+
     border-radius: 24px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(117,48,0,.52),
-            rgba(39,12,0,.62)
+            rgba(110,45,0,.58),
+            rgba(35,10,0,.68)
         );
 
-    border: 1px solid rgba(255,205,100,.25);
+    border:
+        1px solid
+        rgba(255,205,100,.28);
 
     box-shadow:
-        0 15px 45px rgba(0,0,0,.35),
-        inset 0 0 30px rgba(255,180,50,.06);
 
-    backdrop-filter: blur(10px);
+        0 15px 45px
+        rgba(0,0,0,.35),
+
+        inset 0 0 30px
+        rgba(255,170,30,.06);
+
+    backdrop-filter:
+        blur(10px);
 }
 
-.flowerTitle {
-    font-size: 22px;
+.cardTitle {
+
     color: #ffd66c;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
     margin-bottom: 15px;
 }
 
-.messageText {
-    font-size: 16px;
+.cardText {
+
+    color: #fff2d8;
+
+    font-size: 15px;
+
     line-height: 2;
-    color: #fff4dc;
 }
 
-/* =========================
+/* =================================
    MUSIC
-========================= */
+================================= */
 
 .musicArea {
+
     margin-top: 25px;
 }
 
 .musicButton {
-    border: 1px solid rgba(255,210,100,.4);
+
+    padding:
+        13px 23px;
+
     border-radius: 50px;
-    padding: 13px 22px;
 
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 700;
-
-    color: #3d1500;
+    border:
+        1px solid
+        rgba(255,215,110,.4);
 
     background:
         linear-gradient(
             135deg,
-            #ffe28a,
-            #ff9800
+            #ffe18a,
+            #ff9200
         );
 
-    box-shadow:
-        0 8px 25px rgba(255,140,0,.3);
+    color: #401500;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 700;
 
     cursor: pointer;
-    transition: .25s;
+
+    box-shadow:
+        0 8px 25px
+        rgba(255,140,0,.3);
+
+    transition:
+        transform .2s ease;
 }
 
 .musicButton:active {
-    transform: scale(.95);
+
+    transform:
+        scale(.95);
 }
 
-/* =========================
-   ASHIRWAD SECTION
-========================= */
+/* =================================
+   BAPPA BLESSING
+================================= */
 
-.ashirwad {
+.blessingSection {
+
     margin-top: 30px;
-    padding: 28px 18px;
+
+    padding:
+        28px 18px;
 
     border-radius: 25px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(125,52,0,.72),
-            rgba(45,13,0,.75)
+            rgba(120,48,0,.72),
+            rgba(40,12,0,.78)
         );
 
-    border: 1px solid rgba(255,211,110,.35);
+    border:
+        1px solid
+        rgba(255,210,100,.35);
 
     box-shadow:
-        0 15px 40px rgba(0,0,0,.35),
-        inset 0 0 30px rgba(255,180,30,.07);
+
+        0 15px 45px
+        rgba(0,0,0,.35),
+
+        inset 0 0 30px
+        rgba(255,170,30,.07);
+
+    overflow: hidden;
 
     position: relative;
-    overflow: hidden;
 }
 
-.ashirwad::before {
+.blessingSection::before {
+
     content: "";
+
     position: absolute;
+
     width: 180px;
     height: 180px;
+
     right: -80px;
     top: -90px;
+
     border-radius: 50%;
+
     background: #ffc400;
+
     opacity: .10;
-    filter: blur(35px);
+
+    filter: blur(40px);
 }
 
-.ashirwadIcon {
-    font-size: 38px;
+.sectionIcon {
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
 }
 
-.ashirwadTitle {
-    margin-top: 8px;
-    font-size: 25px;
-    color: #ffd86c;
-    text-shadow: 0 0 15px rgba(255,170,0,.4);
+.sectionTitle {
+
+    color: #ffd76b;
+
+    font-size: 24px;
+
+    font-weight: 700;
 }
 
-.ashirwadText {
-    margin-top: 15px;
-    color: #fff0ce;
-    font-size: 16px;
+.sectionText {
+
+    margin-top: 13px;
+
+    color: #fff0cf;
+
+    font-size: 15px;
+
     line-height: 1.9;
 }
 
-/* =========================
+/* =================================
    BLESSING BUTTON
-========================= */
+================================= */
 
 .blessButton {
+
     margin-top: 23px;
 
-    padding: 15px 25px;
+    padding:
+        15px 25px;
 
     border: none;
+
     border-radius: 50px;
-
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 800;
-
-    color: #421600;
 
     background:
         linear-gradient(
             135deg,
-            #ffe28a,
-            #ff9700
+            #ffe38b,
+            #ff9500
         );
 
-    box-shadow:
-        0 8px 25px rgba(255,150,0,.38);
+    color: #411500;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 800;
 
     cursor: pointer;
+
+    box-shadow:
+        0 8px 28px
+        rgba(255,150,0,.4);
 
     transition:
         transform .2s ease,
@@ -543,123 +820,138 @@ body {
 }
 
 .blessButton:hover {
-    transform: translateY(-3px);
+
+    transform:
+        translateY(-3px);
+
     box-shadow:
-        0 12px 35px rgba(255,160,0,.6);
+        0 12px 38px
+        rgba(255,160,0,.65);
 }
 
 .blessButton:active {
-    transform: scale(.95);
+
+    transform:
+        scale(.95);
 }
 
-/* =========================
+/* =================================
    BLESSING RESULT
-========================= */
+================================= */
 
 #blessingResult {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
 
-    transition:
-        max-height 1s ease,
-        opacity 1s ease,
-        margin 1s ease;
-}
+    margin-top: 24px;
 
-#blessingResult.show {
-    max-height: 300px;
-    opacity: 1;
-    margin-top: 25px;
-}
-
-.blessingBox {
-    position: relative;
-
-    padding: 23px 15px;
+    padding:
+        22px 14px;
 
     border-radius: 20px;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,197,45,.18),
-            rgba(120,50,0,.12)
+            rgba(255,200,60,.17),
+            rgba(100,35,0,.10)
         );
 
-    border: 1px solid rgba(255,215,100,.45);
+    border:
+        1px solid
+        rgba(255,215,110,.42);
 
-    color: #ffe6a0;
+    color: #ffe49a;
 
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 16px;
+
+    font-weight: 600;
+
     line-height: 1.9;
 
-    box-shadow:
-        0 0 25px rgba(255,180,0,.18);
+    min-height: 80px;
 
-    animation: goldenBlessing 2s infinite alternate;
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    animation:
+        blessingAppear .6s ease;
 }
 
-@keyframes goldenBlessing {
+@keyframes blessingAppear {
+
     from {
-        box-shadow: 0 0 12px rgba(255,180,0,.15);
+
+        opacity: 0;
+
+        transform:
+            scale(.85)
+            translateY(10px);
     }
 
     to {
-        box-shadow: 0 0 40px rgba(255,190,30,.5);
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
     }
 }
 
-/* =========================
-   GOLDEN BLESSING PARTICLES
-========================= */
-
-.goldenSpark {
-    position: fixed;
-    z-index: 999;
-    pointer-events: none;
-    color: #ffd75c;
-    font-size: 18px;
-    text-shadow: 0 0 12px #ffae00;
-}
-
-/* =========================
+/* =================================
    FOOTER
-========================= */
+================================= */
 
 .footer {
+
     margin-top: 38px;
-    padding: 20px 5px 10px;
+
+    padding:
+        20px 5px 10px;
 }
 
 .footerLine {
-    width: 110px;
-    height: 1px;
-    margin: 0 auto 18px;
 
-    background: #e0a43e;
+    width: 110px;
+
+    height: 1px;
+
+    margin:
+        0 auto 18px;
+
+    background: #dfa33e;
+
     opacity: .5;
 }
 
 .withLove {
+
     color: #fff0d0;
-    font-size: 18px;
+
+    font-size: 17px;
 }
 
-.businessName {
+.name {
+
     margin-top: 9px;
+
     color: #ffd56b;
-    font-size: 21px;
+
+    font-size: 20px;
+
     font-weight: 800;
 }
 
-/* =========================
-   MUSIC FLOAT BUTTON
-========================= */
+/* =================================
+   FLOATING MUSIC
+================================= */
 
 .floatingMusic {
+
     position: fixed;
+
     right: 15px;
     bottom: 18px;
 
@@ -667,66 +959,77 @@ body {
     height: 52px;
 
     border-radius: 50%;
-    border: 1px solid rgba(255,210,100,.45);
 
-    background: rgba(70,25,0,.9);
+    border:
+        1px solid
+        rgba(255,215,110,.45);
 
-    color: #ffd66c;
-    font-size: 21px;
+    background:
+        rgba(65,23,0,.92);
+
+    color: #ffd76b;
+
+    font-size: 20px;
 
     z-index: 500;
 
     cursor: pointer;
 
     box-shadow:
-        0 7px 25px rgba(0,0,0,.4);
+        0 7px 25px
+        rgba(0,0,0,.4);
 }
 
-/* =========================
+/* =================================
    MOBILE
-========================= */
+================================= */
 
 @media (max-width: 420px) {
 
     .page {
+
         padding-left: 13px;
         padding-right: 13px;
     }
 
-    .ganeshVisual {
-        width: 175px;
-        height: 175px;
+    .premiumSymbol {
+
+        width: 170px;
+        height: 170px;
     }
 
-    .ganeshSymbol {
-        font-size: 64px;
+    .mainTitle {
+
+        font-size: 29px;
     }
 
-    .messageText {
-        font-size: 15px;
-    }
+    .cardText,
+    .subtitle,
+    .sectionText {
 
-    .wishMessage {
-        font-size: 15px;
+        font-size: 14px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- =========================
+<!-- =================================
      OPENING
-========================= -->
+================================= -->
 
-<div id="opening">
+<div id="openingScreen">
 
     <div class="diya">
+
         <div class="flame"></div>
+
     </div>
 
     <div class="openingText">
-        🪔 शुभ आरंभ 🪔
+        A Divine Celebration Begins
     </div>
 
 </div>
@@ -735,99 +1038,111 @@ body {
 <div class="backgroundGlow"></div>
 
 
-<!-- =========================
-     MAIN PAGE
-========================= -->
+<!-- =================================
+     MAIN
+================================= -->
 
 <main class="page">
 
 <div class="container">
 
-    <!-- TOP -->
 
-    <div class="om">
-        ॐ श्री गणेशाय नमः
+    <!-- PREMIUM VISUAL -->
+
+    <div class="premiumSymbol">
+
+        <div class="centerDesign"></div>
+
     </div>
 
 
-    <!-- GANPATI VISUAL
-         NO GANPATI IMAGE
-    -->
+    <!-- TITLE -->
 
-    <div class="ganeshVisual">
-        <div class="ganeshSymbol"></div>
-    </div>
+    <h1 class="mainTitle">
 
-
-    <!-- TEXT ANIMATION -->
-
-    <h1 class="title">
-        गणपति बप्पा मोरया
+        Ganpati Bappa Morya
         <span class="heart">❤️</span>
+
     </h1>
 
 
-    <!-- WISH -->
+    <!-- SUBTITLE -->
 
-    <p class="wishMessage">
-        आपको एवं आपके परिवार को
-        <strong>गणेश चतुर्थी की हार्दिक शुभकामनाएँ</strong>
+    <p class="subtitle">
+
+        May Lord Ganesha bring happiness,
+        peace, prosperity and success
+        into your life.
+
     </p>
 
 
-    <!-- =========================
-         MESSAGE CARD
-    ========================= -->
+    <!-- =================================
+         WISH CARD
+    ================================= -->
 
-    <section class="glassCard">
+    <section class="wishCard">
 
-        <div class="flowerTitle">
-            🌸 शुभकामनाएँ 🌸
+        <div class="cardTitle">
+
+            ✨ Ganesh Chaturthi Wishes ✨
+
         </div>
 
-        <p class="messageText">
-            विघ्नहर्ता श्री गणेश जी
-            आपके जीवन में सुख, शांति,
-            समृद्धि और खुशियाँ लेकर आएँ।
+        <p class="cardText">
+
+            Wishing you and your family
+            a blessed and joyful Ganesh Chaturthi.
+
             <br><br>
-            गणपति बप्पा आपके सभी कार्यों को
-            सफल करें और आपके परिवार पर
-            सदैव अपनी कृपा बनाए रखें।
+
+            May Lord Ganesha remove every obstacle
+            from your path and fill your home
+            with love, peace and prosperity.
+
         </p>
 
     </section>
 
 
-    <!-- =========================
+    <!-- =================================
          MUSIC
-    ========================= -->
+    ================================= -->
 
     <div class="musicArea">
 
-        <button class="musicButton" onclick="toggleMusic()">
-            🎵 गणेश भक्ति संगीत चलाएँ
+        <button
+            class="musicButton"
+            onclick="toggleMusic()">
+
+            🎵 Play Devotional Music
+
         </button>
 
     </div>
 
 
-    <!-- =========================
-         ASHIRWAD
-    ========================= -->
+    <!-- =================================
+         BAPPA BLESSING
+    ================================= -->
 
-    <section class="ashirwad">
+    <section class="blessingSection">
 
-        <div class="ashirwadIcon">
-            📜
+        <div class="sectionIcon">
+            ✨
         </div>
 
-        <h2 class="ashirwadTitle">
-            Bappa Ka Ashirwad
+        <h2 class="sectionTitle">
+
+            Bappa's Blessing
+
         </h2>
 
-        <p class="ashirwadText">
-            “बप्पा आपके जीवन में सुख,
-            शांति और समृद्धि लाएँ।”
+        <p class="sectionText">
+
+            Take a moment and receive
+            a special blessing from Bappa.
+
         </p>
 
 
@@ -835,49 +1150,39 @@ body {
             class="blessButton"
             onclick="getBlessing()">
 
-            🙏 Bappa Ka Ashirwad Lo
+            🙏 Get Bappa's Blessing
 
         </button>
 
 
-        <!-- BLESSING RESULT -->
-
         <div id="blessingResult">
 
-            <div class="blessingBox">
-
-                ✨ 🪔 ✨
-
-                <br><br>
-
-                “विघ्नहर्ता गणेश जी
-                आपके सभी विघ्न दूर करें!”
-
-                <br><br>
-
-                🙏 गणपति बप्पा मोरया 🙏
-
-            </div>
+            Click the button
+            to receive your blessing.
 
         </div>
 
     </section>
 
 
-    <!-- =========================
+    <!-- =================================
          FOOTER
-    ========================= -->
+    ================================= -->
 
     <footer class="footer">
 
         <div class="footerLine"></div>
 
         <div class="withLove">
+
             ❤️ With Love ❤️
+
         </div>
 
-        <div class="businessName">
+        <div class="name">
+
             — Your Name / Business Name
+
         </div>
 
     </footer>
@@ -887,19 +1192,27 @@ body {
 </main>
 
 
-<!-- =========================
-     MUSIC
-========================= -->
+<!-- =================================
+     AUDIO
+================================= -->
 
-<audio id="music" loop>
-    <source src="ganesh-music.mp3" type="audio/mpeg">
+<audio
+    id="music"
+    loop>
+
+    <source
+        src="ganesh-music.mp3"
+        type="audio/mpeg">
+
 </audio>
 
 
+<!-- FLOATING MUSIC -->
+
 <button
     class="floatingMusic"
-    onclick="toggleMusic()"
-    id="musicButton">
+    id="musicButton"
+    onclick="toggleMusic()">
 
     🎵
 
@@ -908,35 +1221,46 @@ body {
 
 <script>
 
-/* =========================
-   OPENING ANIMATION
-========================= */
+/* =================================
+   OPENING
+================================= */
 
-window.addEventListener("load", function() {
+window.addEventListener(
+    "load",
+    function() {
 
-    setTimeout(function() {
+        setTimeout(
+            function() {
 
-        document
-            .getElementById("opening")
-            .classList.add("hide");
+                document
+                    .getElementById("openingScreen")
+                    .classList.add("hide");
 
-    }, 2300);
+            },
+            2300
+        );
 
-});
+    }
+);
 
 
-/* =========================
-   BACKGROUND PARTICLES
-========================= */
+/* =================================
+   PARTICLES
+================================= */
 
 function createParticles() {
 
-    for (let i = 0; i < 35; i++) {
+    for (
+        let i = 0;
+        i < 35;
+        i++
+    ) {
 
         const particle =
             document.createElement("div");
 
-        particle.className = "particle";
+        particle.className =
+            "particle";
 
         particle.style.left =
             Math.random() * 100 + "vw";
@@ -947,16 +1271,18 @@ function createParticles() {
         particle.style.animationDelay =
             Math.random() * 8 + "s";
 
-        document.body.appendChild(particle);
+        document.body.appendChild(
+            particle
+        );
     }
 }
 
 createParticles();
 
 
-/* =========================
-   FLOWER / PETAL ANIMATION
-========================= */
+/* =================================
+   FLOWERS
+================================= */
 
 const flowers = [
     "🌸",
@@ -970,12 +1296,14 @@ function createFlower() {
     const flower =
         document.createElement("div");
 
-    flower.className = "flower";
+    flower.className =
+        "flower";
 
     flower.innerText =
         flowers[
             Math.floor(
-                Math.random() * flowers.length
+                Math.random() *
+                flowers.length
             )
         ];
 
@@ -988,19 +1316,29 @@ function createFlower() {
     flower.style.animationDuration =
         (5 + Math.random() * 5) + "s";
 
-    document.body.appendChild(flower);
+    document.body.appendChild(
+        flower
+    );
 
-    setTimeout(function() {
-        flower.remove();
-    }, 11000);
+    setTimeout(
+        function() {
+
+            flower.remove();
+
+        },
+        11000
+    );
 }
 
-setInterval(createFlower, 850);
+setInterval(
+    createFlower,
+    850
+);
 
 
-/* =========================
+/* =================================
    MUSIC
-========================= */
+================================= */
 
 let musicPlaying = false;
 
@@ -1012,129 +1350,287 @@ function toggleMusic() {
     const button =
         document.getElementById("musicButton");
 
+
     if (!musicPlaying) {
 
         music.play()
-        .then(function() {
 
-            musicPlaying = true;
+        .then(
+            function() {
 
-            button.innerText = "🔊";
+                musicPlaying = true;
 
-        })
-        .catch(function() {
+                button.innerText =
+                    "🔊";
 
-            alert(
-                "Please add ganesh-music.mp3 to your GitHub repository."
-            );
+            }
+        )
 
-        });
+        .catch(
+            function() {
 
-    } else {
+                alert(
+                    "Add ganesh-music.mp3 to your GitHub repository."
+                );
+
+            }
+        );
+
+    }
+
+    else {
 
         music.pause();
 
         musicPlaying = false;
 
-        button.innerText = "🎵";
+        button.innerText =
+            "🎵";
+
     }
 }
 
 
-/* =========================
-   BAPPA ASHIRWAD
-========================= */
+/* =================================
+   BLESSING MESSAGES
+================================= */
+
+const blessings = [
+
+    "May Lord Ganesha fill your life with happiness, peace and prosperity. 🙏",
+
+    "May Bappa remove every obstacle from your path and guide you toward success. ✨",
+
+    "May Lord Ganesha bless your family with good health, harmony and endless happiness. 🌸",
+
+    "May Bappa bring new opportunities, positive energy and success into your life. 🪔",
+
+    "May every dream in your heart come closer to reality with Bappa's blessings. ❤️",
+
+    "May Lord Ganesha protect your home and fill it with love, peace and prosperity. 🙏",
+
+    "May Bappa bless you with strength to overcome every challenge and courage to move forward. ✨",
+
+    "May this Ganesh Chaturthi bring beautiful beginnings and wonderful memories to your life. 🌺",
+
+    "May Lord Ganesha always keep your family united, happy and blessed. ❤️",
+
+    "May Bappa's divine blessings shine upon you today and always. 🪔"
+
+];
+
+
+/* =================================
+   RANDOM WITHOUT IMMEDIATE REPEAT
+================================= */
+
+let availableBlessings = [
+    ...blessings
+];
+
+function getRandomBlessing() {
+
+    if (
+        availableBlessings.length === 0
+    ) {
+
+        availableBlessings = [
+            ...blessings
+        ];
+    }
+
+    const randomIndex =
+        Math.floor(
+            Math.random() *
+            availableBlessings.length
+        );
+
+    return availableBlessings.splice(
+        randomIndex,
+        1
+    )[0];
+}
+
+
+/* =================================
+   GET BAPPA'S BLESSING
+================================= */
 
 function getBlessing() {
 
     const result =
-        document.getElementById("blessingResult");
+        document.getElementById(
+            "blessingResult"
+        );
 
-    result.classList.add("show");
+
+    /* Get a different message */
+
+    const message =
+        getRandomBlessing();
+
+
+    /* Replace message */
+
+    result.innerHTML =
+        message;
+
+
+    /* Restart animation */
+
+    result.style.animation =
+        "none";
+
+    void result.offsetWidth;
+
+    result.style.animation =
+        "blessingAppear .6s ease";
+
+
+    /* Golden animation */
 
     createGoldenBlessing();
 
-    /* User interaction allows music */
+
+    /* Start music after user tap */
 
     const music =
         document.getElementById("music");
 
     music.play()
-    .then(function() {
 
-        musicPlaying = true;
+    .then(
+        function() {
 
-        document
-            .getElementById("musicButton")
-            .innerText = "🔊";
+            musicPlaying = true;
 
-    })
-    .catch(function() {});
+            document
+                .getElementById(
+                    "musicButton"
+                )
+                .innerText = "🔊";
+
+        }
+    )
+
+    .catch(
+        function() {}
+    );
+
 }
 
 
-/* =========================
-   GOLDEN BLESSING ANIMATION
-========================= */
+/* =================================
+   GOLDEN BLESSING EFFECT
+================================= */
 
 function createGoldenBlessing() {
 
-    for (let i = 0; i < 35; i++) {
+    for (
+        let i = 0;
+        i < 40;
+        i++
+    ) {
 
         const spark =
             document.createElement("div");
 
-        spark.className =
-            "goldenSpark";
-
         spark.innerText =
             Math.random() > .5
             ? "✨"
-            : "🪔";
+            : "✦";
 
-        spark.style.left = "50%";
-        spark.style.top = "50%";
+        spark.style.position =
+            "fixed";
+
+        spark.style.left =
+            "50%";
+
+        spark.style.top =
+            "50%";
+
+        spark.style.zIndex =
+            "999";
+
+        spark.style.pointerEvents =
+            "none";
+
+        spark.style.fontSize =
+            (14 + Math.random() * 12) +
+            "px";
+
+        spark.style.color =
+            "#ffd76b";
+
+        spark.style.textShadow =
+            "0 0 15px #ffae00";
+
 
         const x =
-            (Math.random() - .5) * 350;
+            (Math.random() - .5) *
+            380;
 
         const y =
-            (Math.random() - .5) * 450;
+            (Math.random() - .5) *
+            450;
+
 
         spark.animate(
 
             [
+
                 {
                     transform:
-                        "translate(-50%, -50%) scale(.3)",
+                        "translate(-50%,-50%) scale(.2)",
+
                     opacity: 1
                 },
 
                 {
+
                     transform:
                         `translate(
                             calc(-50% + ${x}px),
                             calc(-50% + ${y}px)
                         )
-                        scale(1.4)`,
+                        scale(1.5)`,
+
                     opacity: 0
+
                 }
+
             ],
 
             {
-                duration:
-                    1200 + Math.random() * 1000,
 
-                easing: "ease-out"
+                duration:
+                    1100 +
+                    Math.random() * 1000,
+
+                easing:
+                    "ease-out"
+
             }
+
         );
 
-        document.body.appendChild(spark);
 
-        setTimeout(function() {
-            spark.remove();
-        }, 2400);
+        document.body.appendChild(
+            spark
+        );
+
+
+        setTimeout(
+            function() {
+
+                spark.remove();
+
+            },
+            2300
+        );
+
     }
+
 }
 
 </script>
