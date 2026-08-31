@@ -1,1110 +1,888 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ganpati Bappa Morya 🙏</title>
+<title>Ganesh Chaturthi Wishes</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    background:
+        radial-gradient(circle at 50% 25%, #5c2500 0%, #241000 35%, #080300 75%);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* =========================
+   OPENING SCREEN
+========================= */
+
+#openingScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: radial-gradient(circle, #542000, #120500 70%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+#openingScreen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.diya {
+    width: 80px;
+    height: 40px;
+    background: linear-gradient(#ffbd32, #9d3600);
+    border-radius: 0 0 50px 50px;
+    position: relative;
+    box-shadow: 0 0 35px #ff8c00;
+}
+
+.flame {
+    position: absolute;
+    width: 25px;
+    height: 42px;
+    left: 50%;
+    top: -38px;
+    transform: translateX(-50%);
+    background: linear-gradient(#fff7a8, #ff8a00, #ff3c00);
+    border-radius: 50% 50% 50% 50%;
+    animation: flame 0.7s infinite alternate;
+    box-shadow: 0 0 30px #ff9d00;
+}
+
+@keyframes flame {
+    from {
+        transform: translateX(-50%) scale(0.9);
     }
-
-    html {
-      scroll-behavior: smooth;
+    to {
+        transform: translateX(-50%) scale(1.15);
     }
+}
 
-    body {
-      min-height: 100vh;
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(
-          circle at top,
-          #ffb52e 0%,
-          #b94700 35%,
-          #4b1600 72%,
-          #160400 100%
-        );
-      color: #fff8dc;
-      overflow-x: hidden;
+.openText {
+    margin-top: 45px;
+    font-size: 18px;
+    color: #ffd98a;
+    animation: fadeText 1.5s infinite alternate;
+}
+
+@keyframes fadeText {
+    from { opacity: .5; }
+    to { opacity: 1; }
+}
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.page {
+    min-height: 100vh;
+    padding: 25px 16px 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* glowing background */
+
+.glow {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: #ff8c00;
+    opacity: .12;
+    filter: blur(80px);
+    border-radius: 50%;
+    left: 50%;
+    top: 180px;
+    transform: translateX(-50%);
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: #ffd76b;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: .7;
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    from {
+        transform: translateY(110vh);
+        opacity: 0;
     }
-
-    /* =========================
-       INTRO SCREEN
-    ========================= */
-
-    #intro {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-
-      background:
-        radial-gradient(
-          circle at center,
-          #ffd45a 0%,
-          #e87500 35%,
-          #641d00 72%,
-          #160400 100%
-        );
-
-      transition:
-        opacity 1.5s ease,
-        visibility 1.5s ease;
+    20% {
+        opacity: .8;
     }
-
-    #intro.hide {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
     }
+}
 
-    .intro-content {
-      width: 90%;
-      animation: introGlow 2s ease-in-out infinite alternate;
+/* =========================
+   FLOWERS
+========================= */
+
+.petal {
+    position: fixed;
+    top: -30px;
+    font-size: 20px;
+    z-index: 10;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
     }
+}
 
-    .intro-om {
-      font-size: 90px;
-      color: #fff5bd;
+/* =========================
+   MAIN CONTENT
+========================= */
 
-      text-shadow:
-        0 0 10px #ffffff,
-        0 0 25px #ffd54f,
-        0 0 50px #ff9800;
+.container {
+    position: relative;
+    z-index: 5;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
 
-      margin-bottom: 25px;
+/* top */
+
+.topOm {
+    font-size: 28px;
+    color: #ffd36b;
+    margin-top: 10px;
+    animation: glowText 2s infinite alternate;
+}
+
+@keyframes glowText {
+    from {
+        text-shadow: 0 0 8px #ff9d00;
     }
-
-    .intro-title {
-      font-size: clamp(28px, 7vw, 52px);
-      font-weight: bold;
-      color: #fff8dc;
-
-      text-shadow:
-        0 0 10px #ffffff,
-        0 0 25px #ffd54f,
-        0 0 50px #ff6f00;
+    to {
+        text-shadow: 0 0 30px #ffd36b;
     }
+}
 
-    .intro-subtitle {
-      margin-top: 20px;
+/* =========================
+   GANESH VISUAL
+========================= */
 
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      letter-spacing: 4px;
-      color: #ffe9a3;
-    }
+.ganeshBox {
+    width: 210px;
+    height: 210px;
+    margin: 25px auto 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle, #ffca57 0%, #c75c00 40%, #351000 75%);
+    border: 2px solid rgba(255,210,100,.55);
+    box-shadow:
+        0 0 30px rgba(255,150,20,.5),
+        inset 0 0 30px rgba(255,220,120,.2);
+    animation: ganeshGlow 3s infinite alternate;
+}
 
-    @keyframes introGlow {
-      from {
+@keyframes ganeshGlow {
+    from {
         transform: scale(1);
-        filter: brightness(1);
-      }
-
-      to {
-        transform: scale(1.06);
-        filter: brightness(1.2);
-      }
+        box-shadow: 0 0 25px rgba(255,150,20,.4);
     }
-
-    /* =========================
-       MAIN WEBSITE
-    ========================= */
-
-    #main {
-      min-height: 100vh;
-
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-
-      padding: 55px 15px;
-
-      opacity: 0;
-      transform: translateY(20px) scale(0.96);
-
-      transition:
-        opacity 1.5s ease,
-        transform 1.5s ease;
+    to {
+        transform: scale(1.04);
+        box-shadow: 0 0 55px rgba(255,170,30,.8);
     }
-
-    #main.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .website {
-      position: relative;
-
-      width: min(94vw, 600px);
-
-      padding: 35px 25px 45px;
-
-      text-align: center;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(75, 20, 0, 0.92),
-          rgba(48, 10, 0, 0.95)
-        );
-
-      border: 2px solid rgba(255, 205, 70, 0.8);
-
-      border-radius: 38px;
-
-      box-shadow:
-        0 0 20px rgba(255, 193, 7, 0.5),
-        0 0 70px rgba(255, 111, 0, 0.35),
-        inset 0 0 35px rgba(255, 193, 7, 0.12);
-
-      overflow: hidden;
-    }
-
-    /* =========================
-       GOLDEN BORDER
-    ========================= */
-
-    .gold-line {
-      position: absolute;
-
-      top: 0;
-      right: 0;
-
-      width: 7px;
-      height: 100%;
-
-      background:
-        linear-gradient(
-          to bottom,
-          transparent,
-          #ffd54f,
-          #fff0a8,
-          #ffb300,
-          transparent
-        );
-
-      border-radius: 10px;
-
-      box-shadow:
-        0 0 10px #ffd54f,
-        0 0 25px #ff9800;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    .top-om {
-      font-size: 55px;
-
-      color: #ffd54f;
-
-      text-shadow:
-        0 0 10px #fff,
-        0 0 25px #ffca28,
-        0 0 45px #ff9800;
-
-      margin-bottom: 8px;
-    }
-
-    .title {
-      font-size: clamp(30px, 8vw, 48px);
-
-      color: #fff0a8;
-
-      text-shadow:
-        0 0 8px #fff,
-        0 0 20px #ffca28,
-        0 0 40px #ff6f00;
-
-      line-height: 1.15;
-    }
-
-    .subtitle {
-      margin-top: 15px;
-
-      font-family: Arial, sans-serif;
-
-      font-size: 14px;
-
-      letter-spacing: 5px;
-
-      color: #ffe7a0;
-    }
-
-    .divider {
-      width: 80%;
-      height: 1px;
-
-      margin: 28px auto;
-
-      background:
-        linear-gradient(
-          to right,
-          transparent,
-          #ffd54f,
-          #fff2a8,
-          #ffd54f,
-          transparent
-        );
-
-      box-shadow: 0 0 8px #ff9800;
-    }
-
-    /* =========================
-       GANESHA PHOTO
-    ========================= */
-
-    .ganpati-box {
-      position: relative;
-
-      width: 100%;
-
-      margin: 10px auto 30px;
-
-      border-radius: 28px;
-    }
-
-    .ganpati-box::before {
-      content: "";
-
-      position: absolute;
-
-      inset: 5%;
-
-      background: rgba(255, 193, 7, 0.4);
-
-      filter: blur(35px);
-
-      border-radius: 50%;
-
-      z-index: 0;
-    }
-
-    .ganpati {
-      position: relative;
-
-      z-index: 1;
-
-      display: block;
-
-      width: 100%;
-
-      max-height: 650px;
-
-      object-fit: contain;
-
-      border-radius: 28px;
-
-      border: 2px solid rgba(255, 213, 79, 0.7);
-
-      box-shadow:
-        0 0 20px rgba(255, 215, 100, 0.5),
-        0 0 45px rgba(255, 152, 0, 0.4);
-
-      animation: imageGlow 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes imageGlow {
-      from {
-        box-shadow:
-          0 0 20px rgba(255, 215, 100, 0.4),
-          0 0 45px rgba(255, 152, 0, 0.25);
-      }
-
-      to {
-        box-shadow:
-          0 0 30px rgba(255, 230, 130, 0.7),
-          0 0 65px rgba(255, 152, 0, 0.45);
-      }
-    }
-
-    /* =========================
-       BLESSINGS CARD
-    ========================= */
-
-    .blessing-card {
-      position: relative;
-
-      padding: 28px 20px;
-
-      margin-top: 25px;
-
-      border-radius: 28px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(102, 35, 0, 0.8),
-          rgba(55, 12, 0, 0.85)
-        );
-
-      border: 1px solid rgba(255, 213, 79, 0.55);
-
-      box-shadow:
-        inset 0 0 25px rgba(255, 193, 7, 0.08),
-        0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .blessing-card h2 {
-      font-size: clamp(25px, 7vw, 34px);
-
-      color: #ffe082;
-
-      text-shadow:
-        0 0 8px #fff,
-        0 0 20px #ff9800;
-
-      margin-bottom: 18px;
-    }
-
-    .blessing-card p {
-      font-size: 17px;
-
-      line-height: 1.8;
-
-      color: #fff3d0;
-    }
-
-    /* =========================
-       BLESSING BUTTON
-    ========================= */
-
-    .blessing-btn {
-      margin-top: 25px;
-
-      padding: 15px 25px;
-
-      border: none;
-
-      border-radius: 40px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #ffb300,
-          #e48a00
-        );
-
-      color: white;
-
-      font-size: 17px;
-
-      font-weight: bold;
-
-      font-family: Arial, sans-serif;
-
-      cursor: pointer;
-
-      box-shadow:
-        0 5px 20px rgba(255, 152, 0, 0.35);
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-    }
-
-    .blessing-btn:active {
-      transform: scale(0.94);
-    }
-
-    .blessing-message {
-      display: none;
-
-      margin-top: 20px;
-
-      padding: 15px;
-
-      border-radius: 18px;
-
-      background: rgba(255, 193, 7, 0.1);
-
-      color: #ffe082;
-
-      font-size: 17px;
-
-      line-height: 1.6;
-    }
-
-    .blessing-message.show {
-      display: block;
-
-      animation: messageAppear 0.7s ease;
-    }
-
-    @keyframes messageAppear {
-      from {
+}
+
+.ganesh {
+    font-size: 125px;
+    filter: drop-shadow(0 5px 12px rgba(0,0,0,.5));
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.mainTitle {
+    font-size: clamp(27px, 7vw, 42px);
+    font-weight: 800;
+    color: #ffd76a;
+    line-height: 1.35;
+    text-shadow:
+        0 0 10px #ff7a00,
+        0 0 25px rgba(255,150,0,.5);
+    animation: titleIn 1.5s ease;
+}
+
+@keyframes titleIn {
+    from {
         opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
+        transform: translateY(25px) scale(.9);
+    }
+    to {
         opacity: 1;
-        transform: translateY(0);
-      }
+        transform: translateY(0) scale(1);
     }
+}
 
-    /* =========================
-       MUSIC CARD
-    ========================= */
+.subTitle {
+    margin-top: 14px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #fff0cc;
+}
 
-    .music-card {
-      margin-top: 25px;
+/* =========================
+   CARD
+========================= */
 
-      padding: 25px 18px;
+.card {
+    margin-top: 28px;
+    padding: 24px 20px;
+    border-radius: 22px;
+    background: rgba(70, 25, 0, .52);
+    border: 1px solid rgba(255,200,100,.25);
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.35),
+        inset 0 0 25px rgba(255,160,30,.06);
+    backdrop-filter: blur(8px);
+}
 
-      border-radius: 28px;
+.cardTitle {
+    color: #ffd36a;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
 
-      background:
-        rgba(85, 25, 0, 0.72);
+.wish {
+    font-size: 17px;
+    line-height: 2;
+    color: #fff5df;
+}
 
-      border: 1px solid rgba(255, 213, 79, 0.5);
+/* =========================
+   ASHIRWAD SECTION
+========================= */
 
-      box-shadow:
-        inset 0 0 25px rgba(255, 193, 7, 0.08);
-    }
-
-    .music-card h2 {
-      font-size: 28px;
-
-      color: #ffe082;
-
-      text-shadow:
-        0 0 10px #ff9800;
-
-      margin-bottom: 12px;
-    }
-
-    .music-card p {
-      font-size: 16px;
-
-      line-height: 1.6;
-
-      color: #ffecc2;
-    }
-
-    .music-btn {
-      margin-top: 20px;
-
-      padding: 15px 30px;
-
-      border: none;
-
-      border-radius: 35px;
-
-      background:
+.ashirwad {
+    margin-top: 28px;
+    padding: 28px 18px;
+    border-radius: 24px;
+    background:
         linear-gradient(
-          135deg,
-          #9e3200,
-          #6f2000
+            145deg,
+            rgba(129,55,0,.75),
+            rgba(50,17,0,.75)
         );
+    border: 1px solid rgba(255,206,100,.35);
+    position: relative;
+    overflow: hidden;
+}
 
-      color: white;
+.ashirwad::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: #ffc400;
+    opacity: .08;
+    filter: blur(40px);
+    top: -60px;
+    right: -40px;
+}
 
-      font-size: 17px;
+.scrollIcon {
+    font-size: 36px;
+}
 
-      font-weight: bold;
+.ashirwad h2 {
+    color: #ffd76b;
+    margin: 8px 0 15px;
+    font-size: 24px;
+}
 
-      cursor: pointer;
+.ashirwad p {
+    color: #fff2d0;
+    line-height: 1.9;
+    font-size: 16px;
+}
 
-      font-family: Arial, sans-serif;
+/* =========================
+   BUTTON
+========================= */
 
-      box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.25);
+.blessButton {
+    margin-top: 22px;
+    padding: 15px 24px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ffd86b, #ff8a00);
+    color: #401400;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255,145,0,.35);
+    transition: transform .2s, box-shadow .2s;
+}
 
-      transition: transform 0.2s ease;
+.blessButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255,160,0,.55);
+}
+
+.blessButton:active {
+    transform: scale(.95);
+}
+
+/* =========================
+   BLESSING MESSAGE
+========================= */
+
+#blessingMessage {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 1s ease;
+}
+
+#blessingMessage.show {
+    max-height: 250px;
+    opacity: 1;
+    margin-top: 25px;
+}
+
+.goldenBlessing {
+    padding: 20px 12px;
+    border-radius: 18px;
+    background: rgba(255,193,7,.08);
+    border: 1px solid rgba(255,211,90,.35);
+    color: #ffe59a;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.9;
+    animation: blessingGlow 2s infinite alternate;
+}
+
+@keyframes blessingGlow {
+    from {
+        box-shadow: 0 0 10px rgba(255,180,0,.15);
+    }
+    to {
+        box-shadow: 0 0 35px rgba(255,180,0,.45);
+    }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    margin-top: 35px;
+    padding: 22px 10px;
+}
+
+.footerLine {
+    width: 100px;
+    height: 1px;
+    background: #d99a36;
+    margin: 0 auto 18px;
+    opacity: .5;
+}
+
+.withLove {
+    font-size: 18px;
+    color: #fff0d0;
+}
+
+.name {
+    margin-top: 8px;
+    color: #ffd467;
+    font-weight: 800;
+    font-size: 21px;
+}
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.musicButton {
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,210,100,.5);
+    background: rgba(80,30,0,.85);
+    color: #ffd76a;
+    font-size: 22px;
+    z-index: 100;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,.35);
+}
+
+/* =========================
+   GOLDEN RAYS
+========================= */
+
+.rays {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: .12;
+}
+
+.ray {
+    position: absolute;
+    width: 2px;
+    height: 100vh;
+    background: linear-gradient(transparent, #ffd86b, transparent);
+    left: 50%;
+    top: 0;
+    transform-origin: center;
+}
+
+.ray:nth-child(1) { transform: rotate(20deg); }
+.ray:nth-child(2) { transform: rotate(40deg); }
+.ray:nth-child(3) { transform: rotate(60deg); }
+.ray:nth-child(4) { transform: rotate(-20deg); }
+.ray:nth-child(5) { transform: rotate(-40deg); }
+.ray:nth-child(6) { transform: rotate(-60deg); }
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 420px) {
+
+    .page {
+        padding-left: 13px;
+        padding-right: 13px;
     }
 
-    .music-btn:active {
-      transform: scale(0.95);
+    .ganeshBox {
+        width: 185px;
+        height: 185px;
     }
 
-    /* =========================
-       FINAL MESSAGE
-    ========================= */
-
-    .final-card {
-      margin-top: 25px;
-
-      padding: 28px 20px;
-
-      border-radius: 28px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(95, 30, 0, 0.75),
-          rgba(45, 9, 0, 0.85)
-        );
-
-      border: 1px solid rgba(255, 213, 79, 0.45);
+    .ganesh {
+        font-size: 105px;
     }
 
-    .final-card h2 {
-      font-size: 27px;
-
-      color: #ffe082;
-
-      text-shadow:
-        0 0 10px #ff9800;
-
-      margin-bottom: 15px;
+    .wish {
+        font-size: 15px;
     }
-
-    .final-card p {
-      font-size: 17px;
-
-      line-height: 1.8;
-
-      color: #fff1cf;
-    }
-
-    /* =========================
-       FLOATING PARTICLES
-    ========================= */
-
-    .particle {
-      position: fixed;
-
-      bottom: -30px;
-
-      pointer-events: none;
-
-      z-index: 5;
-
-      animation: floatUp linear forwards;
-
-      opacity: 0;
-    }
-
-    @keyframes floatUp {
-      0% {
-        transform:
-          translateY(0)
-          rotate(0deg)
-          scale(1);
-
-        opacity: 0;
-      }
-
-      20% {
-        opacity: 0.9;
-      }
-
-      100% {
-        transform:
-          translateY(-115vh)
-          rotate(180deg)
-          scale(0.5);
-
-        opacity: 0;
-      }
-    }
-
-    /* =========================
-       DIYA
-    ========================= */
-
-    .diya {
-      position: fixed;
-
-      bottom: 20px;
-      left: 20px;
-
-      z-index: 20;
-
-      font-size: 32px;
-
-      animation: diyaGlow 1.5s ease-in-out infinite alternate;
-
-      pointer-events: none;
-    }
-
-    @keyframes diyaGlow {
-      from {
-        filter: brightness(1);
-        transform: scale(1);
-      }
-
-      to {
-        filter: brightness(1.5);
-        transform: scale(1.08);
-      }
-    }
-
-    /* =========================
-       FLOWERS
-    ========================= */
-
-    .flower {
-      position: fixed;
-
-      top: -40px;
-
-      z-index: 4;
-
-      pointer-events: none;
-
-      animation: flowerFall linear forwards;
-    }
-
-    @keyframes flowerFall {
-      0% {
-        transform:
-          translateY(-50px)
-          rotate(0deg);
-
-        opacity: 0;
-      }
-
-      15% {
-        opacity: 1;
-      }
-
-      100% {
-        transform:
-          translateY(110vh)
-          rotate(360deg);
-
-        opacity: 0;
-      }
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media (max-width: 600px) {
-
-      #main {
-        padding: 25px 10px;
-      }
-
-      .website {
-        width: 96vw;
-
-        padding:
-          30px 16px 35px;
-
-        border-radius: 30px;
-      }
-
-      .ganpati {
-        border-radius: 22px;
-      }
-
-      .title {
-        font-size: 34px;
-      }
-
-      .subtitle {
-        font-size: 12px;
-        letter-spacing: 3px;
-      }
-
-      .blessing-card,
-      .music-card,
-      .final-card {
-        border-radius: 24px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- =========================
-       INTRO
-  ========================= -->
+<!-- =========================
+     OPENING
+========================= -->
 
-  <div id="intro">
+<div id="openingScreen">
 
-    <div class="intro-content">
-
-      <div class="intro-om">
-        ॐ
-      </div>
-
-      <div class="intro-title">
-        Om Shri Ganeshaya Namah
-      </div>
-
-      <div class="intro-subtitle">
-        AUSPICIOUS BEGINNING • DIVINE BLESSINGS
-      </div>
-
+    <div class="diya">
+        <div class="flame"></div>
     </div>
 
-  </div>
+    <div class="openText">
+        🪔 शुभ आरंभ 🪔
+    </div>
+
+</div>
 
 
-  <!-- =========================
-       MAIN WEBSITE
-  ========================= -->
+<!-- =========================
+     RAYS
+========================= -->
 
-  <main id="main">
-
-    <div class="website">
-
-      <div class="gold-line"></div>
-
-
-      <!-- HEADER -->
-
-      <div class="top-om">
-        ॐ
-      </div>
-
-      <h1 class="title">
-        Ganpati Bappa Morya
-      </h1>
-
-      <div class="subtitle">
-        MANGAL MURTI MORYA
-      </div>
-
-      <div class="divider"></div>
+<div class="rays">
+    <div class="ray"></div>
+    <div class="ray"></div>
+    <div class="ray"></div>
+    <div class="ray"></div>
+    <div class="ray"></div>
+    <div class="ray"></div>
+</div>
 
 
-      <!-- GANESHA PHOTO -->
+<!-- =========================
+     MAIN PAGE
+========================= -->
 
-      <div class="ganpati-box">
+<main class="page">
 
-        <img
-          class="ganpati"
-          src="./ganpati.png"
-          alt="Lord Ganesha">
+    <div class="glow"></div>
 
-      </div>
+    <div class="container">
 
-
-      <!-- BLESSINGS -->
-
-      <section class="blessing-card">
-
-        <h2>
-          🙏 Bappa's Blessings 🙏
-        </h2>
-
-        <p>
-          May Lord Ganesha remove every obstacle
-          from your path and fill your life with
-          happiness, peace, prosperity and success.
-        </p>
-
-        <button
-          class="blessing-btn"
-          onclick="getBlessing()">
-
-          🙏 Receive Bappa's Blessings
-
-        </button>
-
-        <div
-          id="blessingMessage"
-          class="blessing-message">
-
-          ✨ May Bappa bless you and your family
-          with happiness, peace, good health,
-          success and prosperity. 🙏
-
+        <div class="topOm">
+            ॐ श्री गणेशाय नमः
         </div>
 
-      </section>
+
+        <!-- GANESH -->
+
+        <div class="ganeshBox">
+            <div class="ganesh">🙏</div>
+        </div>
 
 
-      <!-- MUSIC -->
+        <!-- TITLE -->
 
-      <section class="music-card">
+        <h1 class="mainTitle">
+            गणपति बप्पा मोरया ❤️
+        </h1>
 
-        <h2>
-          🎵 Bappa's Music
-        </h2>
-
-        <p>
-          Enjoy peaceful devotional music
-          and feel the divine blessings of Bappa.
+        <p class="subTitle">
+            मंगलमूर्ति मोरया 🙏<br>
+            गणेश चतुर्थी की हार्दिक शुभकामनाएँ
         </p>
 
-        <audio
-          id="bappaMusic"
-          loop>
 
-          <source
-            src="./bappa-music.mp3"
-            type="audio/mpeg">
+        <!-- WISH CARD -->
 
-        </audio>
+        <section class="card">
 
-        <button
-          class="music-btn"
-          onclick="toggleMusic()">
+            <div class="cardTitle">
+                🌸 शुभकामना 🌸
+            </div>
 
-          🎵 Play Bappa Music
+            <p class="wish">
+                आपको एवं आपके परिवार को
+                <strong>गणेश चतुर्थी</strong> की
+                हार्दिक शुभकामनाएँ।
+                <br><br>
+                विघ्नहर्ता श्री गणेश जी आपके जीवन में
+                सुख, शांति, समृद्धि और खुशियाँ लेकर आएँ।
+            </p>
 
-        </button>
-
-      </section>
+        </section>
 
 
-      <!-- FINAL MESSAGE -->
+        <!-- ASHIRWAD -->
 
-      <section class="final-card">
+        <section class="ashirwad">
 
-        <h2>
-          🙏 Ganpati Bappa Morya!
-        </h2>
+            <div class="scrollIcon">
+                📜
+            </div>
 
-        <p>
-          May Lord Ganesha bless your home
-          with happiness, peace and prosperity.
-          May every new beginning bring
-          success and positive energy into
-          your life.
-        </p>
+            <h2>
+                Bappa Ka Ashirwad
+            </h2>
 
-      </section>
+            <p>
+                “बप्पा आपके जीवन में सुख,
+                शांति और समृद्धि लाएँ।”
+            </p>
+
+            <button
+                class="blessButton"
+                onclick="getBlessing()">
+
+                🙏 Bappa Ka Ashirwad Lo
+
+            </button>
+
+
+            <div id="blessingMessage">
+
+                <div class="goldenBlessing">
+
+                    ✨ 🪔 ✨<br>
+
+                    “विघ्नहर्ता गणेश जी
+                    आपके सभी विघ्न दूर करें!”
+
+                    <br>
+
+                    🙏 गणपति बप्पा मोरया 🙏
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <div class="footerLine"></div>
+
+            <div class="withLove">
+                ❤️ With Love ❤️
+            </div>
+
+            <div class="name">
+                — Your Name / Business Name
+            </div>
+
+        </footer>
 
     </div>
 
-  </main>
+</main>
 
 
-  <!-- DIYA -->
+<!-- =========================
+     MUSIC
+========================= -->
 
-  <div class="diya">
-    🪔
-  </div>
+<audio id="ganeshMusic" loop>
+    <source src="ganesh-music.mp3" type="audio/mpeg">
+</audio>
+
+<button
+    class="musicButton"
+    onclick="toggleMusic()"
+    id="musicButton">
+
+    🎵
+
+</button>
 
 
-  <script>
+<script>
 
-    /* =========================
-       INTRO SEQUENCE
-    ========================= */
+/* =========================
+   OPENING SCREEN
+========================= */
 
-    setTimeout(function () {
+window.addEventListener("load", function() {
 
-      document
-        .getElementById("intro")
-        .classList
-        .add("hide");
-
-      setTimeout(function () {
+    setTimeout(function() {
 
         document
-          .getElementById("main")
-          .classList
-          .add("show");
+            .getElementById("openingScreen")
+            .classList.add("hide");
 
-      }, 500);
+    }, 2200);
 
-    }, 3500);
+});
 
 
-    /* =========================
-       MUSIC
-    ========================= */
+/* =========================
+   PARTICLES
+========================= */
 
-    function toggleMusic() {
+function createParticles() {
 
-      const music =
-        document.getElementById("bappaMusic");
+    for (let i = 0; i < 35; i++) {
 
-      const button =
-        document.querySelector(".music-btn");
+        const particle = document.createElement("div");
 
-      if (music.paused) {
+        particle.className = "particle";
+
+        particle.style.left =
+            Math.random() * 100 + "%";
+
+        particle.style.animationDuration =
+            (5 + Math.random() * 8) + "s";
+
+        particle.style.animationDelay =
+            Math.random() * 8 + "s";
+
+        document.body.appendChild(particle);
+    }
+}
+
+createParticles();
+
+
+/* =========================
+   FLOWER PETALS
+========================= */
+
+const flowers = ["🌸", "🌺", "🌼", "🪷"];
+
+function createPetal() {
+
+    const petal = document.createElement("div");
+
+    petal.className = "petal";
+
+    petal.innerText =
+        flowers[Math.floor(Math.random() * flowers.length)];
+
+    petal.style.left =
+        Math.random() * 100 + "vw";
+
+    petal.style.fontSize =
+        (14 + Math.random() * 12) + "px";
+
+    petal.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(petal);
+
+    setTimeout(() => {
+        petal.remove();
+    }, 11000);
+}
+
+setInterval(createPetal, 900);
+
+
+/* =========================
+   ASHIRWAD BUTTON
+========================= */
+
+function getBlessing() {
+
+    const message =
+        document.getElementById("blessingMessage");
+
+    message.classList.add("show");
+
+    createGoldenParticles();
+
+    /* Play music after user interaction */
+
+    const music =
+        document.getElementById("ganeshMusic");
+
+    music.play().catch(() => {});
+
+    document.getElementById("musicButton").innerText = "🔊";
+}
+
+
+/* =========================
+   GOLDEN PARTICLES
+========================= */
+
+function createGoldenParticles() {
+
+    for (let i = 0; i < 30; i++) {
+
+        const spark = document.createElement("div");
+
+        spark.innerText = "✨";
+
+        spark.style.position = "fixed";
+        spark.style.left = "50%";
+        spark.style.top = "50%";
+        spark.style.zIndex = "999";
+        spark.style.pointerEvents = "none";
+        spark.style.fontSize = "18px";
+
+        const x =
+            (Math.random() - .5) * 320;
+
+        const y =
+            (Math.random() - .5) * 400;
+
+        spark.animate(
+            [
+                {
+                    transform: "translate(-50%, -50%) scale(.5)",
+                    opacity: 1
+                },
+                {
+                    transform:
+                        `translate(calc(-50% + ${x}px),
+                         calc(-50% + ${y}px))
+                         scale(1.4)`,
+                    opacity: 0
+                }
+            ],
+            {
+                duration: 1200 + Math.random() * 800,
+                easing: "ease-out"
+            }
+        );
+
+        document.body.appendChild(spark);
+
+        setTimeout(() => {
+            spark.remove();
+        }, 2200);
+    }
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+let playing = false;
+
+function toggleMusic() {
+
+    const music =
+        document.getElementById("ganeshMusic");
+
+    const button =
+        document.getElementById("musicButton");
+
+    if (!playing) {
 
         music.play()
-          .then(function () {
+            .then(() => {
 
-            button.innerHTML =
-              "⏸️ Pause Bappa Music";
+                playing = true;
+                button.innerText = "🔊";
 
-          })
-          .catch(function () {
+            })
+            .catch(() => {
 
-            button.innerHTML =
-              "🎵 Tap Again to Play";
+                alert(
+                    "Please add ganesh-music.mp3 to your GitHub folder."
+                );
 
-          });
+            });
 
-      } else {
+    } else {
 
         music.pause();
 
-        button.innerHTML =
-          "🎵 Play Bappa Music";
-      }
+        playing = false;
+
+        button.innerText = "🎵";
     }
+}
 
-
-    /* =========================
-       BLESSING BUTTON
-    ========================= */
-
-    function getBlessing() {
-
-      const message =
-        document.getElementById("blessingMessage");
-
-      message.classList.add("show");
-
-      createBurst();
-
-    }
-
-
-    /* =========================
-       GOLDEN PARTICLES
-    ========================= */
-
-    function createParticle() {
-
-      const particle =
-        document.createElement("div");
-
-      particle.className =
-        "particle";
-
-      const symbols = [
-        "✨",
-        "✦",
-        "🌼",
-        "🪔",
-        "•"
-      ];
-
-      particle.innerHTML =
-        symbols[
-          Math.floor(
-            Math.random() * symbols.length
-          )
-        ];
-
-      particle.style.left =
-        Math.random() * 100 + "vw";
-
-      particle.style.fontSize =
-        (12 + Math.random() * 18) + "px";
-
-      particle.style.animationDuration =
-        (5 + Math.random() * 7) + "s";
-
-      document.body.appendChild(particle);
-
-      setTimeout(function () {
-
-        particle.remove();
-
-      }, 13000);
-    }
-
-    setInterval(
-      createParticle,
-      500
-    );
-
-
-    /* =========================
-       FALLING FLOWERS
-    ========================= */
-
-    function createFlower() {
-
-      const flower =
-        document.createElement("div");
-
-      flower.className =
-        "flower";
-
-      const flowers = [
-        "🌸",
-        "🌺",
-        "🌼",
-        "💮"
-      ];
-
-      flower.innerHTML =
-        flowers[
-          Math.floor(
-            Math.random() * flowers.length
-          )
-        ];
-
-      flower.style.left =
-        Math.random() * 100 + "vw";
-
-      flower.style.fontSize =
-        (15 + Math.random() * 15) + "px";
-
-      flower.style.animationDuration =
-        (6 + Math.random() * 7) + "s";
-
-      document.body.appendChild(flower);
-
-      setTimeout(function () {
-
-        flower.remove();
-
-      }, 14000);
-    }
-
-    setInterval(
-      createFlower,
-      1800
-    );
-
-
-    /* =========================
-       BLESSING PARTICLE BURST
-    ========================= */
-
-    function createBurst() {
-
-      for (let i = 0; i < 15; i++) {
-
-        const particle =
-          document.createElement("div");
-
-        particle.className =
-          "particle";
-
-        particle.innerHTML = "✨";
-
-        particle.style.left =
-          (45 + Math.random() * 10) + "vw";
-
-        particle.style.bottom =
-          (25 + Math.random() * 20) + "vh";
-
-        particle.style.fontSize =
-          (15 + Math.random() * 15) + "px";
-
-        particle.style.animationDuration =
-          (2 + Math.random() * 2) + "s";
-
-        document.body.appendChild(particle);
-
-        setTimeout(function () {
-
-          particle.remove();
-
-        }, 5000);
-      }
-    }
-
-  </script>
+</script>
 
 </body>
 </html>
